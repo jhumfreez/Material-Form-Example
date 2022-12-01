@@ -1,0 +1,19 @@
+<hello name="{{ name }}"></hello>
+<form [formGroup]="myForm">
+  <mat-form-field>
+    <mat-label for="animal">Enter your favorite animal</mat-label>
+    <input id="animal" matInput formControlName="animal" />
+    <mat-hint>Ex. Dog</mat-hint>
+    <mat-error *ngIf="animal.errors && myForm.get('animal').touched">{{
+      errorMessage
+    }}</mat-error>
+  </mat-form-field>
+</form>
+<button mat-raised-button color="primary" (click)="submit()">Submit</button>
+<button mat-raised-button color="accent" (click)="clear()">Clear</button>
+
+<p>Control value: {{ animal.value | json }}</p>
+<p>Control status: {{ animal.status | json }}</p>
+<p>Control touched: {{ animal.touched | json }}</p>
+<p>Control dirty: {{ animal.dirty | json }}</p>
+<p>Control errors: {{ animal.errors | json }}</p>
